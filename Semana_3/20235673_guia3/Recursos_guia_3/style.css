@@ -32,13 +32,34 @@ h2{
 section{
     margin: 0 auto;
     width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    overflow: hidden;
+    position: relative;
+
 }
 section article{
     font-size: 0.9rem;
     height: 340px;
     width: 32.33%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    padding: 1%;
+    border: 2px dashed #16A085;
+    overflow: hidden;
 }
 section article img{
     height: 180px;
     max-width: 80%;
+    margin: 5px auto;
+    display: block;
+}
+footer div {
+    padding-top: 1rem;
+}
+
+section article:nth-child(2) {
+    background-color: rgba(70, 130, 180, 0.9);
+    display: none;
 }

@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; 
+  }
+  
+  header {
+    background-color: #333; 
+    color: #fff; 
+    padding: 20px;
+    text-align: center;
+  }
+  
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  section {
+    background-color: #fff; 
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    width: calc(33.33% - 40px); 
+  }
+  
+  section.guides {
+    background-color: #f7f7f7; 
+    border-left: 5px solid #337ab7; 
+  }
+  
+  section.guides h2 {
+    margin-top: 0;
+    font-weight: bold;
+    color: #337ab7; 
+  }
+  
+  section.guides ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  section.guides li {
+    margin-bottom: 10px;
+  }
+  
+  section.guides a {
+    text-decoration: none;
+    color: #337ab7; 
+  }
+  
+  section.guides a:hover {
+    color: #23527c; 
+  }
+  
+  section.foda, section.retroalimentacion, section.aprendizaje-continuo {
+    background-color: #fff; 
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    width: calc(33.33% - 40px); 
+  }
+  
+  section.foda {
+    border-left: 5px solid #ff69b4; 
+  }
+  
+  section.retroalimentacion {
+    border-left: 5px solid #8bc34a; 
+  }
+  
+  section.aprendizaje-continuo {
+    border-left: 5px solid #9c27b0; 
+  
+  section {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  section:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); 
+  }
+  
+
+  @media (max-width: 768px) {
+    section {
+      width: calc(50% - 40px); 
+    }
+  }
+  
+  @media (max-width: 480px) {
+    section {
+      width: 100%; 
+    }
+}

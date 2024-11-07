@@ -92,7 +92,102 @@ const recorrerFormulario = function () {
     modal.show();
 };
 
-// agregando eventos al boton
-button.onclick = () => {
-    recorrerFormulario();
+// Validación del formulario
+const validarFormulario = () => {
+    let valid = true;
+    let mensajes = [];
+
+    // Validar campos vacíos
+    Array.from(formulario.elements).forEach(elemento => {
+        if (elemento.type !== "submit" && elemento.type !== "button" && elemento.value.trim() === "") {
+            valid = false;
+            mensajes.push(`${elemento.name} no debe estar vacío.`);
+        }
+    });
+
+    // Validar fecha de nacimiento
+    const fechaNacimiento = formulario.elements["fechaNacimiento"];
+    if (fechaNacimiento && new Date(fechaNacimiento.value) > new Date()) {
+        valid = false;
+        mensajes.push("La fecha de nacimiento no puede ser futura.");
+    }
+
+    // Validar formato de correo electrónico
+    const email = formulario.elements["email"];
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email && !emailRegex.test(email.value)) {
+        valid = false;
+        mensajes.push("El correo electrónico no es válido.");
+    }
+
+    // Validar contraseñas coinciden
+    const password = formulario.elements["password"];
+    const passwordRepeat = formulario.elements["passwordRepeat"];
+    if (password && passwordRepeat && password.value !== passwordRepeat.value) {
+        valid = false;
+        mensajes.push("Las contraseñas no coinciden.");
+    }
+
+    // Validar al menos un interés seleccionado (corrección aquí)
+    const intereses = formulario.querySelectorAll('input[name="intereses"]:checked');
+    if (intereses.length === 0) {
+        valid = false;
+        mensajes.push("Debe seleccionar al menos un interés.");
+    }
+
+    // Validar selección de carrera
+    const carrera = formulario.elements["carrera"];
+    if (carrera && carrera.value === "") {
+        valid = false;
+        mensajes.push("Debe seleccionar una carrera.");
+    }
+
+    // Validar selección de país
+    const pais = formulario.elements["pais"];
+    if (pais && pais.value === "") {
+        valid = false;
+        mensajes.push("Debe seleccionar un país de origen.");
+    }
+
+    if (!valid) {
+        alert(mensajes.join("\n"));  // Puedes cambiar esto a un modal o mensaje en la página si prefieres
+    }
+
+    return valid;
+};
+
+// Mostrar datos en una tabla si es válido
+const mostrarDatosEnModal = () => {
+    if (!validarFormulario()) return;
+
+    const tabla = document.createElement("table");
+    tabla.classList.add("table", "table-striped");
+
+    const tbody = document.createElement("tbody");
+    Array.from(formulario.elements).forEach(elemento => {
+        if (elemento.type !== "submit" && elemento.type !== "button") {
+            const fila = document.createElement("tr");
+
+            const celdaNombre = document.createElement("td");
+            celdaNombre.textContent = elemento.name;
+            fila.appendChild(celdaNombre);
+
+            const celdaValor = document.createElement("td");
+            celdaValor.textContent = elemento.value;
+            fila.appendChild(celdaValor);
+
+            tbody.appendChild(fila);
+        }
+    });
+
+    tabla.appendChild(tbody);
+    bodyModal.innerHTML = ""; // Limpia el contenido del modal
+    bodyModal.appendChild(tabla);
+    modal.show();
+};
+
+// Asignar el evento al botón
+button.onclick = (event) => {
+    event.preventDefault();  // Prevenir el envío automático del formulario
+    mostrarDatosEnModal();
 };

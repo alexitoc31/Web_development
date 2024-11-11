@@ -41,3 +41,13 @@
     z-index: 1;
     margin-top: -100px;
 }
+
+/* Nueva carta al final de la fila */
+#nueve_de_diamantes {
+    position: absolute;
+    left: 49%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    margin-top: -125px;
+}

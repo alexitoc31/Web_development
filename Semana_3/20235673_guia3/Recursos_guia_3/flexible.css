@@ -22,25 +22,33 @@ h1 {
 
 /* PARTE SUPERIOR */
 #superior {
-    width: 100%;
-    padding: 30px 0px;
+    width: 62.5%;
+    padding: 2% 0px;
     background-color: #464d52;
+    margin: 2% 0px;
+    float: left;
+    height: auto;
 }
 
 #encabezado {
     margin: 0px auto;
-    width: 960px;
+    min-width: 650px;
+    max-width: 960px;
 }
 
 #descripcion {
-    width: 360px;
-    height: 360px;
+    width: 37.5%;
+    height: auto;
     background-color: #888;
     float: left;
 }
+#logo{
+    margin: 2% 0px;
+    width: 21%;
+}
 
 #descripcion p {
-    margin: 20px;
+    margin: 5%;
     color: white;
     font-weight: bold;
     line-height: 180%;
@@ -93,9 +101,16 @@ nav ul li #galeria {
 }
 /*Contenido principal de las páginas*/
 #contenido {
-    width: 960px;
+    width: 80%;
     margin: 0px auto;
     clear: left;
+    min-width: 650px;
+    max-width: 960px;
+
+}
+#superior #encabezado #logo{
+    margin: 2% 0px;
+    width: 21%;
 }
 
 /* PIE DE LA PAGINA */
@@ -112,10 +127,10 @@ footer {
 
 /* CONTENIDO DE LA PAGINA INDEX */
 .plan {
-    width: 258px;
-    padding: 20px;
+    width: 26.7%;
+    padding: 2%;
     background-color: white;
-    margin: 30px 15px;
+    margin: 30px 1.5%;
     border: solid 1px black;
     border-radius: 10px;
     float: left;
@@ -158,16 +173,22 @@ footer {
 
 /* CONTENIDO DE LA PAGINA PLANES */
 .planes {
-    width: 900px;
+    width: 94%;
     background: white;
-    padding: 10px 30px;
+    padding: 1%;
 }
-
+.planes img{
+    width: 100%;
+    border-radius: 15px;
+}
 .planes h1 {
     text-align: left;
     font-size: 1.5em;
 }
-
+.plan img{
+    width: 100%;
+    height: auto;
+}
 .planes .precio {
     font-size: 1.1em;
     margin: 20px 0px 5px;
@@ -186,4 +207,8 @@ footer {
     font-size: 1em;
     margin-bottom: 10px;
     padding-bottom: 1px;
+    margin: 30px 1.4% 10px;
+    display: inline-block;
+    float: none;
+    vertical-align: top;
 }
